@@ -2,6 +2,7 @@
   <div id="app">
 
     <p> Hej</p>
+    <p>Hej på dig</p>
   </div>
 </template>
 
