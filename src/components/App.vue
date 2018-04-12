@@ -2,9 +2,7 @@
   <div id="app">
 
     <landing-page/>
-    <p> Hej</p>
-    <p>Hej på dig</p>
-    <p>okej</p>
+    
     <one-recipe :selected="selectedRecipe"/> <!--Visar ett recept -->
   </div>
 </template>
