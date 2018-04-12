@@ -27,6 +27,7 @@
         </li>
       </ul>
     </div>
+    <img src="./pancake.jpg" alt="pancake" />
 
   </div>
 </template>
