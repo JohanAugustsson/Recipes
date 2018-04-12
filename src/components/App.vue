@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 
+    <landing-page/>
     <p> Hej</p>
     <p>Hej på dig</p>
     <p>okej</p>
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+  import landingPage from './landingpage/landingpage.vue'
   import oneRecipe from './oneRecipe/oneRecipe.vue';
   const recipesObject = require('../mocks/recipes.json');  // databas: json object med alla recept som vi har.
   console.log(recipesObject);
@@ -18,11 +20,13 @@
     data: function(){
       return{
         recipesObject : recipesObject,
-        selectedRecipe : recipesObject[0]
+        selectedRecipe : recipesObject[0],
+
       }
     },
     components: {
-      "one-recipe" : oneRecipe
+      "one-recipe" : oneRecipe,
+      "landing-page": landingPage
     }
   }
 </script>
