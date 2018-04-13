@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <i class="fas fa-heart"></i>
+    
 
     <landing-page/>
     <all-recipes/>
