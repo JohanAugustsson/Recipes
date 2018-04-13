@@ -8,11 +8,12 @@
       <h3>Så här gör du:</h3>
       <ul>
         <li v-for="(steps ,index ) in selected.howToCook">
+
           <label class="wrapper-checkbox">
-            <input type="checkbox" name="box" />
-            <span class="spanBox"></span>
-            {{ index }}
-            {{ steps }}
+              <input type="checkbox" />  <!-- checkbox som är osynlig -->
+              <div class="iconForChecked"><i class="fas fa-arrow-circle-right fa-lg"></i></div> <!-- synlig när checkbox är checked -->
+              {{ index }}
+              {{ steps }}
           </label>
         </li>
       </ul>
@@ -29,10 +30,18 @@
     </div>
     <img src="./pancake.jpg" alt="pancake" />
 
+
+
+
+
+
+
+
   </div>
 </template>
 
 <script>
+
 export default {
   props: ["selected"]
 }
@@ -61,4 +70,24 @@ export default {
   ul{
     list-style-type: none;
   }
+  ul li{
+    margin: 10px;
+    font-size: 1.1em;
+  }
+  input {
+    display: none;
+  }
+
+  .iconForChecked{
+    display: none;
+    position: absolute;
+    left: 15px;
+  }
+
+  input:checked ~ .iconForChecked{
+    display: inline-block;
+    position: absolute;
+    color: rgb(69, 168, 21);
+  }
+
 </style>
