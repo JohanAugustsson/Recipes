@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    
+
 
     <landing-page/>
-    <all-recipes/>
+   <all-recipes :loopThrough="allFoodObj"/>   <!--loopar igenom alla recept -->
 
     <one-recipe :selected="selectedRecipe"/> <!--Visar ett recept -->
   </div>
@@ -24,6 +24,7 @@
       return{
         recipesObject : recipesObject,
         selectedRecipe : recipesObject[0],
+        allFoodObj: recipesObject
 
       }
     },
