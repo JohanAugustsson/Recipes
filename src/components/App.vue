@@ -3,7 +3,7 @@
 
 
     <landing-page/>
-    <all-recipes/>
+   <all-recipes :loopThrough="allFoodObj"/>   <!--loopar igenom alla recept -->
 
     <one-recipe v-on:add-HowToCook="editToHowToCook" :selected="selectedRecipe"/> <!--Visar ett recept -->
 
@@ -25,6 +25,7 @@
       return{
         recipesObject : recipesObject,
         selectedRecipe : recipesObject[0],
+        allFoodObj: recipesObject
 
       }
     },
