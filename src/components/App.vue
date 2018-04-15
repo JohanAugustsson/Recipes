@@ -5,7 +5,7 @@
     <landing-page/>
     <all-recipes/>
 
-    <one-recipe v-on:add-HowToCook="addToHowToCook" :selected="selectedRecipe"/> <!--Visar ett recept -->
+    <one-recipe v-on:add-HowToCook="editToHowToCook" :selected="selectedRecipe"/> <!--Visar ett recept -->
 
   </div>
 </template>
@@ -34,7 +34,7 @@
       "landing-page": landingPage
     },
     methods: {
-      addToHowToCook: function(Obj){
+      editToHowToCook: function(Obj){
         if(Obj.type === "add"){
           let sum = Object.keys((this.selectedRecipe.howToCook))  //tittar på nyckeln som ligger sist och adderar 1.
           sum = Number(sum[sum.length-1])

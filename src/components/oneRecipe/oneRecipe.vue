@@ -10,56 +10,55 @@
       </div>
     </div>
 
+    <div class="container-HowToCook">
+      <ul>
+        <h3>Så här gör du:</h3>
 
+        <li v-for="(steps ,index ) in selected.howToCook">
+          <div v-if="!editText">
+            <label class="wrapper-checkbox">
+              <input class="inputCheckbox" type="checkbox" />  <!-- invisible checkbox -->
+              <span></span>
+              <div class="iconForChecked"><i class="far fa-check-square fa-lg"></i></div> <!-- icon is visible when checkbox is checked -->
+              {{ steps }}
+            </label>
+          </div>
+          <div v-else class="inputForTodoList"> <!-- Edit text in todo list -->
+            <textarea :value="steps" @change="updateHowToCook($event,index)" />
+            <button @click="removeHowToCook(index)"><i class="far fa-trash-alt"></i></button>
+          </div>
+        </li>
 
+          <div v-if="editText" class="inputForTodoList"> <!-- Add to todo list -->
+            <textarea ref="textToAdd" />
+            <button @click="addHowToCook" class="btnAddHowToCook"><i class="fas fa-plus"></i></button>
+          </div>
+      </ul>
+    </div>
 
-      <div class="container-HowToCook">
-        <ul>
-          <h3>Så här gör du:</h3>
+    <div class="container-Ingridience">
+      <ul>
+        <h3>Ingridienser:</h3>
+        <li v-for="(item,index) in selected.ingridience">
+          <div v-if="!editText">
+            {{ item }}
 
-          <li v-for="(steps ,index ) in selected.howToCook">
-
-              <div v-if="editText">
-                <label class="wrapper-checkbox">
-                    <input class="inputCheckbox" type="checkbox" />  <!-- checkbox som är osynlig -->
-                    <span></span>
-                    <div class="iconForChecked"><i class="far fa-check-square fa-lg"></i></div> <!-- synlig när checkbox är checked -->
-                    <!-- {{ index }} -->
-                    {{ steps }}
-                </label>
-            </div>
-            <div v-else class="inputForTodoList"> <!-- Redigera text -->
-                <textarea :value="steps" @change="updateHowToCook($event,index)" /><button @click="removeHowToCook(index)"><i class="far fa-trash-alt"></i></button>
-            </div>
-          </li>
-
-            <div v-if="!editText" class="inputForTodoList">
-              <textarea ref="textToAdd" /><button @click="addHowToCook" class="btnAddHowToCook"><i class="fas fa-plus"></i></button>
-            </div>
-        </ul>
-      </div>
-
-      <div class="container-Ingridience">
-
-        <ul>
-          <h3>Ingridienser:</h3>
-          <li v-for="item in selected.ingridience">
-            {{ item.unit }}
-            {{ item.name }}
             <hr/>
+          </div>
+          <div v-else class="inputForIngridienceList"> <!-- Edit text in ingridience list -->
+            <textarea :value="item" @change="updateIngridience($event,index)" />
+            <button @click="removeIngridience(index)"><i class="far fa-trash-alt"></i></button>
+          </div>
+        </li>
 
-          </li>
+        <div v-if="editText" class="inputForIngridienceList"> <!-- Add to ingridience list -->
+          <textarea ref="textToAddToIngridience" />
+          <button @click="addIngridience" class="btnAddHowToCook"><i class="fas fa-plus"></i></button>
+        </div>
 
-        </ul>
-      </div>
-      <img src="./pancake.jpg" alt="pancake" />
-
-
-
-
-
-
-
+      </ul>
+    </div>
+    <img src="./pancake.jpg" alt="pancake" />
   </div>
 </template>
 
@@ -69,7 +68,7 @@ export default {
   props: ["selected"],
   data: function(){
     return{
-      editText : true
+      editText : false
     }
   },
   methods:{
@@ -103,6 +102,27 @@ export default {
         textToAdd.value="";
         textToAdd.focus();
       }
+    },
+    updateIngridience: function (event,index){
+      console.log( "event:" , event.target );
+      console.log( "index:" , index );
+    },
+    removeIngridience: function (index){
+      console.log( "index:" , index);
+    },
+    addIngridience: function(event){
+      let textToAddToIngridience = this.$refs.textToAddToIngridience
+      let fail = false;
+      if(textToAddToIngridience.value==""){fail = true}
+      if(!fail){
+        this.$emit('add-HowToCook', {
+          type: "addIngridience",
+          textToAdd : textToAddToIngridience.value
+        });
+        textToAddToIngridience.value="";
+        textToAddToIngridience.focus();
+      }
+      console.log( "ingridience" , textToAddToIngridience.value);
     }
   }
 }
@@ -179,10 +199,10 @@ export default {
     background-color: rgb(96, 239, 107);
   }
 
-  .inputForTodoList{
+  .inputForTodoList, .inputForIngridienceList{
     display: flex;
   }
-  .inputForTodoList textarea{
+  .inputForTodoList textarea, .inputForIngridienceList textarea{
     flex: 1 80%;
     padding: 5px;
   }
