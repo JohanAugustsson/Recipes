@@ -4,7 +4,7 @@
 
     <landing-page/>
     <button @click="addRecipe">Lägg till recept</button>
-   <all-recipes :loopThrough="allFoodObj"/>   <!--loopar igenom alla recept -->
+   <all-recipes v-on:chosen-recipe="chosenRecipe" :loop-through="allFoodObj"/>   <!--loopar igenom alla recept -->
 
     <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
   </div>
@@ -95,6 +95,16 @@
           }
         }
         this.recipesObject.push(obj)
+      },
+      chosenRecipe:function(obj){
+        console.log(obj);
+        obj.item.isFavo = !obj.item.isFavo;
+        this.$set(this.allFoodObj, obj.index, obj.item)
+        console.log(obj.item);
+        console.log(obj.index);
+        console.log(obj.item.isFavo);
+        console.log(this.allFoodObj);
+
       }
     } // methods End
 

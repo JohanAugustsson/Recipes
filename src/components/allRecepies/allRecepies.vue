@@ -1,33 +1,67 @@
 <template lang="html">
 <div class="allRecipes-container">
-  <div v-for="item in loopThrough" class="recipeCard">
+  <div v-if="whichRecipeSite==='allRecipesSite'" v-for="(item,index) in loopThrough" class="recipeCard">
+    <div v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
+    </div>
+    <div class="recipeInfo">
+      <h3>{{item.title}}</h3>
+      <p>{{item.textInfo}}</p>
+      <div class="ingrediens-pickMe">
+        <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
+
+        <a v-if="item.isFavo === false" @click.prevent='hartChosen(item,index)' href=""><i class="far fa-heart"></i> välj mig</a>
+        <a v-if="item.isFavo === true" @click.prevent='hartChosen(item,index)' href=""><i class="fas fa-heart"></i> Vald</a>
+      </div>
+    </div>
+  </div>
+
+  <div v-if="whichRecipeSite==='myRecipesSite' && item.isFavo===true" v-for="item in loopThrough" class="recipeCard">
     <div class="recipeImg-holder">
     </div>
     <div class="recipeInfo">
       <h3>{{item.title}}</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <p>
+        {{item.textInfo}}
       </p>
       <div class="ingrediens-pickMe">
         <p> {{ingrediens}} ingredienser</p>
-        <a href=""><i class="fas fa-heart"></i> välj mig</a>
+
+        <a v-if="item.isFavo === true" @click.prevent='hartChosen(item,index)' href=""><i class="fas fa-heart"></i> Vald</a>
       </div>
     </div>
   </div>
+
+  <!-- <div v-else-if="whichRecipeSite==='myRecipesSite' && item.isFavo===false" class="">
+    <p>Du har för tillfället inte valt några recept</p>
+  </div> -->
 </div>
 
 </template>
 
 <script>
+  import "../../../static/fontAwsome/fontawesome-all.js";
 export default {
-  props:['loopThrough'],
+  props:['loop-through'],
   data: function() {
     return {
       ingrediens: 12,
+      isFavorite: false,
+      whichRecipeSite: 'allRecipesSite',
+      chosenRecepieList: [],
+
+
     };
-  }
-}
+  }, // data
+  methods: {
+    hartChosen:function(item,index){
+      this.$emit('chosen-recipe', {
+        item:item,
+        index:index
+      })
+    }
+
+  } // methods
+} // export default
 </script>
 
 <style scoped lang="css">
@@ -51,6 +85,7 @@ a{
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 
 }
@@ -67,7 +102,6 @@ a{
 .recipeImg-holder{
   margin-right: 1rem;
   width: 400px;
-  background: url('https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

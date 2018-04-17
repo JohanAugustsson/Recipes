@@ -2,6 +2,9 @@
   {
     "id" : 1,
     "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
     "cookingTime" : "45min",
     "ingridience" :{
       "1" : "2st Ägg",
@@ -18,6 +21,9 @@
   {
     "id" : 2,
     "title" : "Våfflor",
+    "isFavo": false,
+    "recipeImgUrl":"https://www.ica.se//icase.azureedge.net/imagevaultfiles/id_13882/cf_259/292887-grundrecept_v-ffelsmet-receptbild_vaffla_gr.jpg",
+    "textInfo": "Frasiga våfflor med en topping av persika och ricottaost, krispigt och mjukt på samma gång. De söta persikorna och ricottaosten, som du smaksatt med honung och citron kompletterar varandra väl på den frasiga våfflan.",
     "cookingTime" : "35min",
     "ingridience" :{
       "1" : "2st Ägg",
