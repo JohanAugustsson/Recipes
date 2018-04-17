@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    
+
 
     <landing-page/>
-    <all-recipes/>
+   <all-recipes :loopThrough="allFoodObj"/>   <!--loopar igenom alla recept -->
 
-    <one-recipe :selected="selectedRecipe"/> <!--Visar ett recept -->
+    <one-recipe v-on:add-HowToCook="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
+
   </div>
 </template>
 
@@ -24,6 +25,7 @@
       return{
         recipesObject : recipesObject,
         selectedRecipe : recipesObject[0],
+        allFoodObj: recipesObject
 
       }
     },
@@ -31,6 +33,28 @@
       "one-recipe" : oneRecipe,
       "all-recipes": allRecipes,
       "landing-page": landingPage
+    },
+    methods: {
+      editRecipe: function(Obj){
+        if(Obj.type === "add"){
+          let sum = Object.keys((this.selectedRecipe.howToCook))  //tittar på nyckeln som ligger sist och adderar 1.
+          sum = Number(sum[sum.length-1])
+          if(!isNaN(sum)){
+            sum++
+          }else{
+            sum = 1;
+          }
+          console.log(sum);
+          this.$set(this.selectedRecipe.howToCook, sum, Obj.textToAdd) // måste använda $set för att vue ska detektera uppdateringen
+        }
+        if(Obj.type === "update"){
+          this.$set(this.selectedRecipe.howToCook, Obj.index, Obj.textToAdd)
+        }
+        if(Obj.type === "remove"){
+          this.$delete(this.selectedRecipe.howToCook, Obj.index);
+        }
+
+      }
     }
   }
 </script>

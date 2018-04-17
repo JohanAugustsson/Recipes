@@ -4,27 +4,26 @@
     "title" : "Pannkaka",
     "cookingTime" : "45min",
     "ingridience" :{
-      "1" : {"name" : "Ägg", "unit" : "2st"},
-      "2" : {"name" : "Mjölk", "unit" : "6dl"},
-      "3" : {"name" : "Mjöl", "unit" : "3dl"},
-      "4" : {"name" : "Salt", "unit" : "1tsk"}
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
     },
     "howToCook" : {
         "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
         "2" : "Skickta ner lite mjöl.",
         "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"
-    }
+        "4" : "Stek nu allt i en schteeekpanna"}
   },
   {
     "id" : 2,
     "title" : "Våfflor",
     "cookingTime" : "35min",
     "ingridience" :{
-      "1" : {"name" : "Ägg", "unit" : "2st"},
-      "2" : {"name" : "Mjölk", "unit" : "6dl"},
-      "3" : {"name" : "Mjöl", "unit" : "3dl"},
-      "4" : {"name" : "Salt", "unit" : "1tsk"}
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
     },
     "howToCook" : {
         "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
