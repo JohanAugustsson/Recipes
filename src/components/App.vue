@@ -112,5 +112,7 @@
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-
+  #app{
+    margin-bottom: 50vh;
+  }
 </style>
