@@ -2,7 +2,12 @@
   <div class="container-Selected">
     <div class="selectedTitle">
 
-        <h2>{{ selected.title }}</h2>
+
+        <h2 v-if="!editText">{{ selected.title }}</h2>
+        <h2 v-else>
+          <textarea ref="updateTitelText" :value="selected.title" @change="updateTitle($event)" />
+        </h2>
+
 
       <div class="container-btn">
           <button ref="btnEdit" @click="editRecipe"><i class="fas fa-pencil-alt"></i> Redigera </button>
@@ -76,7 +81,7 @@ export default {
       this.editText = !this.editText;
     },
     updateHowToCook: function(event,index){
-      this.$emit('add-HowToCook', {
+      this.$emit('edit-recipe', {
            type: "update",
            index: index,
            textToAdd : event.target.value
@@ -84,7 +89,7 @@ export default {
 			});
     },
     removeHowToCook: function(index){
-      this.$emit('add-HowToCook', {
+      this.$emit('edit-recipe', {
         type: "remove",
         index: index
 			});
@@ -95,7 +100,7 @@ export default {
       if(textToAdd.value==""){fail = true}
 
       if(!fail){
-        this.$emit('add-HowToCook', {
+        this.$emit('edit-recipe', {
           type: "add",
           textToAdd : textToAdd.value
         });
@@ -104,25 +109,38 @@ export default {
       }
     },
     updateIngridience: function (event,index){
-      console.log( "event:" , event.target );
-      console.log( "index:" , index );
+      this.$emit('edit-recipe', {
+           type: "updateIngridience",
+           index: index,
+           textToAdd : event.target.value
+
+			});
     },
     removeIngridience: function (index){
-      console.log( "index:" , index);
+      this.$emit('edit-recipe', {
+        type: "removeIngridience",
+        index: index
+      });
     },
     addIngridience: function(event){
       let textToAddToIngridience = this.$refs.textToAddToIngridience
       let fail = false;
       if(textToAddToIngridience.value==""){fail = true}
       if(!fail){
-        this.$emit('add-HowToCook', {
+        this.$emit('edit-recipe', {
           type: "addIngridience",
           textToAdd : textToAddToIngridience.value
         });
         textToAddToIngridience.value="";
         textToAddToIngridience.focus();
       }
-      console.log( "ingridience" , textToAddToIngridience.value);
+    },
+    updateTitle: function(event){
+      let updateTitelText = this.$refs.updateTitelText
+      this.$emit('edit-recipe', {
+        type: "updateTitle",
+        textToAdd: updateTitelText.value
+      });
     }
   }
 }
