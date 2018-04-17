@@ -3,10 +3,10 @@
 
 
     <landing-page/>
+    <button @click="addRecipe">Lägg till recept</button>
    <all-recipes :loopThrough="allFoodObj"/>   <!--loopar igenom alla recept -->
 
     <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
-
   </div>
 </template>
 
@@ -78,10 +78,26 @@
         if(Obj.type === "updateTitle"){
             this.$set(this.selectedRecipe, "title", Obj.textToAdd)
         }
+      },
+      addRecipe : function(){
+        let sum = this.recipesObject.length
+        sum++;
+        let obj = {
+          "id" : sum,
+          "title" : "Ange Titel",
+          "cookingTime" : "",
+          "ingridience" :{
+            "1" : "Ingridienser",
 
-
+          },
+          "howToCook" : {
+              "1" : "Fyll i hur du tillagar"
+          }
+        }
+        this.recipesObject.push(obj)
       }
-    }
+    } // methods End
+
   }
 </script>
 
@@ -96,5 +112,7 @@
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
-
+  #app{
+    margin-bottom: 50vh;
+  }
 </style>

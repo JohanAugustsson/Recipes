@@ -10,7 +10,18 @@
 
 
       <div class="container-btn">
-          <button ref="btnEdit" @click="editRecipe"><i class="fas fa-pencil-alt"></i> Redigera </button>
+            <span v-if="!editText">
+              <button key="redigera" ref="btnEdit" @click="editRecipe">
+                <i class="fas fa-pencil-alt"></i> Redigera
+              </button>
+            </span>
+            <span v-else>
+              <button key="spara" ref="btnEdit" @click="editRecipe">
+                <i class="fas fa-save"></i> Spara
+              </button>
+            </span>
+
+
           <button><i class="fas fa-heart"></i> Ta bort </button>
       </div>
     </div>
@@ -63,7 +74,7 @@
 
       </ul>
     </div>
-    <img src="./pancake.jpg" alt="pancake" />
+
   </div>
 </template>
 
@@ -211,7 +222,9 @@ export default {
   }
   button{
     padding: 5px;
-
+  }
+  .container-btn button{
+    width: 200px;
   }
   .btnAddHowToCook{
     background-color: rgb(96, 239, 107);
