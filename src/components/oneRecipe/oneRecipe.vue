@@ -22,7 +22,9 @@
             </span>
 
 
-          <button><i class="fas fa-heart"></i> Ta bort </button>
+          <button v-if="selected.isFavo === false" key='emtyHart' @click="changeFavo"><i class="far fa-heart"></i> välj mig</button>
+          <button v-else key='fullHart' @click="changeFavo"><i class="fas fa-times"></i> Stryk från vald</button>
+          <!-- <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a> -->
       </div>
     </div>
 
@@ -152,6 +154,13 @@ export default {
         type: "updateTitle",
         textToAdd: updateTitelText.value
       });
+    },
+    changeFavo: function(){
+      let favoStatus = !this.selected.isFavo
+      this.$emit('edit-recipe', {
+        type: "changeFavo",
+        favoStatus: favoStatus
+      });
     }
   }
 }
@@ -170,6 +179,8 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 80%;
+    margin: 1rem auto;
   }
   .selectedTitle{
     position: relative;
@@ -225,6 +236,12 @@ export default {
   }
   .container-btn button{
     width: 200px;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  .container-btn button:hover{
+    cursor: pointer;
   }
   .btnAddHowToCook{
     background-color: rgb(96, 239, 107);
