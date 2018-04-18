@@ -3,15 +3,21 @@
 
 
     <landing-page/>
+    <div class="navMenu">
+      <button @click="changeSite('allRecipesSite')"  type="button" name="button">Alla Recept</button>
+      <button @click="changeSite('favoRecipeSite')"  type="button" name="button">Valda Recept</button>
+    </div>
+    <p>{{currentSite}} hi</p>
+
     <button @click="addRecipe">Lägg till recept</button>
-   <all-recipes v-on:chosen-recipe="chosenRecipe" :loop-through="allFoodObj"/>   <!--loopar igenom alla recept -->
+   <all-recipes v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
     <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
   </div>
 </template>
 
 <script>
-  import "../../static/fontAwsome/fontawesome-all.js";
+  import "../../static/web-fonts-with-css/css/fontawesome-all.css";
   import landingPage from './landingpage/landingpage.vue'
   import oneRecipe from './oneRecipe/oneRecipe.vue';
   import allRecipes from './allRecepies/allRecepies.vue'
@@ -25,7 +31,8 @@
       return{
         recipesObject : recipesObject,
         selectedRecipe : recipesObject[0],
-        allFoodObj: recipesObject
+        allFoodObj: recipesObject,
+        currentSite: 'allRecipesSite',
 
       }
     },
@@ -105,6 +112,12 @@
         console.log(obj.item.isFavo);
         console.log(this.allFoodObj);
 
+      },
+      changeSite:function(site){
+        console.log(site);
+        this.currentSite = site;
+      
+
       }
     } // methods End
 
@@ -124,5 +137,30 @@
 <style scoped>
   #app{
     margin-bottom: 50vh;
+  }
+  .navMenu{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+
+    display: flex;
+  }
+  .navMenu>*{
+    width: 50%;
+    height: 100%;
+    padding: 0.5rem;
+
+    border: none;
+  }
+  .navMenu>button:first-child{
+    background-color: #232332;
+    color: #fff;
+    font-weight: bold;
+  }
+  .navMenu>button:last-child{
+    background-color: #0fd857;
+    color: #232323;
+    font-weight: bold;
   }
 </style>

@@ -1,6 +1,6 @@
 <template lang="html">
 <div class="allRecipes-container">
-  <div v-if="whichRecipeSite==='allRecipesSite'" v-for="(item,index) in loopThrough" class="recipeCard">
+  <div v-if="currentRecipeSite==='allRecipesSite'" v-for="(item,index) in loopThrough" class="recipeCard">
     <div v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
     </div>
     <div class="recipeInfo">
@@ -9,14 +9,14 @@
       <div class="ingrediens-pickMe">
         <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
 
-        <a v-if="item.isFavo === false" @click.prevent='hartChosen(item,index)' href=""><i class="far fa-heart"></i> välj mig</a>
-        <a v-if="item.isFavo === true" @click.prevent='hartChosen(item,index)' href=""><i class="fas fa-heart"></i> Vald</a>
+        <a v-if="item.isFavo === false" v-on:click.prevent='hartChosen(item,index)' href="" title="Välj och spara mig Valda recept"><i class="far fa-heart"></i> välj mig</a>
+        <a v-else v-on:click.prevent='hartChosen(item,index)' href="" title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a>
       </div>
     </div>
   </div>
-
-  <div v-if="whichRecipeSite==='myRecipesSite' && item.isFavo===true" v-for="item in loopThrough" class="recipeCard">
-    <div class="recipeImg-holder">
+  <p>{{currentRecipeSite}} hello</p>
+  <div v-if="currentRecipeSite==='favoRecipeSite' && item.isFavo===true" v-for="(item,index) in loopThrough" class="recipeCard">
+    <div  v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
     </div>
     <div class="recipeInfo">
       <h3>{{item.title}}</h3>
@@ -24,9 +24,9 @@
         {{item.textInfo}}
       </p>
       <div class="ingrediens-pickMe">
-        <p> {{ingrediens}} ingredienser</p>
+        <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
 
-        <a v-if="item.isFavo === true" @click.prevent='hartChosen(item,index)' href=""><i class="fas fa-heart"></i> Vald</a>
+        <a v-if="item.isFavo === true" v-on:click.prevent='hartChosen(item,index)' href="" title="Ta bort det här receptet från Valda recept"><i class="fas fa-times"></i> Ta bort</a>
       </div>
     </div>
   </div>
@@ -39,15 +39,17 @@
 </template>
 
 <script>
-  import "../../../static/fontAwsome/fontawesome-all.js";
+import "../../../static/web-fonts-with-css/css/fontawesome-all.css";
+//  import "../../../static/fontAwsome/fontawesome-all.js";
 export default {
-  props:['loop-through'],
+  props:['loopThrough', 'currentSiteStatus'],
   data: function() {
     return {
       ingrediens: 12,
       isFavorite: false,
-      whichRecipeSite: 'allRecipesSite',
-      chosenRecepieList: [],
+      currentRecipeSite: this.currentSiteStatus,
+      chosenRecepieList: []
+
 
 
     };
@@ -102,6 +104,7 @@ a{
 .recipeImg-holder{
   margin-right: 1rem;
   width: 400px;
+  min-width: 200px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -131,6 +134,20 @@ a{
 }
 .ingrediens-pickMe>p{
   font-weight: bold;
+}
+
+@media all and (max-width:1300px){
+  .allRecipes-container{
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .recipeCard{
+    width: 80%;
+    flex-basis: 100%;
+  }
+
+
 }
 
 
