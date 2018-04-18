@@ -1,28 +1,25 @@
 <template lang="html">
 <div class="allRecipes-container">
-  <div v-if="currentRecipeSite==='allRecipesSite'" v-for="(item,index) in loopThrough" class="recipeCard">
-    <div v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
+  <div v-if="currentSiteStatus==='allRecipesSite'" v-for="(item,index) in loopThrough" class="recipeCard">
+    <div @click="showRecipe(index)" v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
     </div>
     <div class="recipeInfo">
-      <h3>{{item.title}}</h3>
-      <p>{{item.textInfo}}</p>
+      <h3 @click="showRecipe(index)">{{item.title}}</h3>
+      <p @click="showRecipe(index)">{{item.textInfo}}</p>
       <div class="ingrediens-pickMe">
-        <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
+        <p class="ingrediensStyle"> {{Object.keys(item.ingridience).length}} ingredienser</p>
 
-        <a v-if="item.isFavo === false" v-on:click.prevent='hartChosen(item,index)' href="" title="Välj och spara mig Valda recept"><i class="far fa-heart"></i> välj mig</a>
-        <a v-else v-on:click.prevent='hartChosen(item,index)' href="" title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a>
+        <a v-if="item.isFavo === false" v-on:click.prevent='hartChosen(item,index)' href="" key='emtyHart' title="Välj och spara mig Valda recept"><i class="far fa-heart"></i> välj mig</a>
+        <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a>
       </div>
     </div>
   </div>
-  <p>{{currentRecipeSite}} hello</p>
-  <div v-if="currentRecipeSite==='favoRecipeSite' && item.isFavo===true" v-for="(item,index) in loopThrough" class="recipeCard">
-    <div  v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
+  <div v-if="currentSiteStatus==='favoRecipeSite' && item.isFavo===true" v-for="(item,index) in loopThrough" class="recipeCard">
+    <div @click="showRecipe(index)" v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
     </div>
     <div class="recipeInfo">
-      <h3>{{item.title}}</h3>
-      <p>
-        {{item.textInfo}}
-      </p>
+      <h3 @click="showRecipe(index)">{{item.title}}</h3>
+      <p @click="showRecipe(index)">{{item.textInfo}}</p>
       <div class="ingrediens-pickMe">
         <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
 
@@ -39,8 +36,8 @@
 </template>
 
 <script>
-import "../../../static/web-fonts-with-css/css/fontawesome-all.css";
-//  import "../../../static/fontAwsome/fontawesome-all.js";
+//import "../../../static/web-fonts-with-css/css/fontawesome-all.css";
+ import "../../../static/fontAwsome/fontawesome-all.js";
 export default {
   props:['loopThrough', 'currentSiteStatus'],
   data: function() {
@@ -57,7 +54,14 @@ export default {
   methods: {
     hartChosen:function(item,index){
       this.$emit('chosen-recipe', {
+        type:'changeFavo',
         item:item,
+        index:index
+      })
+    },
+    showRecipe:function(index){
+      this.$emit('chosen-recipe',{
+        type:'selectMe',
         index:index
       })
     }
@@ -67,8 +71,14 @@ export default {
 </script>
 
 <style scoped lang="css">
+h1{
+font-family: 'Varela Round', sans-serif;
+}
+p,h3{
+  font-family: 'Raleway', sans-serif;
+}
 
-h3,p,a{
+a,.ingrediensStyle{
   font-family: arial,sans-serif;
 }
 
@@ -149,6 +159,15 @@ a{
 
 
 }
-
+@media all and (max-width:600px){
+  .recipeCard{
+    width: 100%;
+  }
+}
+@media all and (max-width:500px){
+  .ingrediens-pickMe{
+    width: 100%;
+  }
+}
 
 </style>

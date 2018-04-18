@@ -1,12 +1,13 @@
 <template lang="html">
-  <div class="landing-container">
+  <div v-bind:style="{ 'background-image': 'url('+ landingImg +')' }" class="landing-container">
     <div class="logo-container">
       <img class="logo"src="../../../img/logo.png" alt="NomNom logo">
     </div>
     <div class="landing-text">
-      <h1>Välkommen till NomNom</h1>
-      <p>Receptsidan där du får de bästa matipsen</p>
-      <button class="cta-all" type="button" name="button">Upptäck våra bästa recept</button>
+      <img class="logo-big"src="../../../img/logo.png" alt="NomNom logo">
+      <!-- <h1>Välkommen till NomNom</h1> -->
+      <h1>Receptsidan där du får de bästa matipsen</h1>
+      <!-- <button class="cta-all" type="button" name="button">Upptäck våra bästa recept</button> -->
     </div>
 
   </div>
@@ -15,7 +16,7 @@
 
 <script>
 export default {
-  props: [],
+  props: ['landingImg'],
   data:function(){
     return {
       img:''
@@ -27,8 +28,14 @@ export default {
 
 <style scoped lang="css">
 
+h1{
+font-family: 'Varela Round', sans-serif;
+}
+p{
+  font-family: 'Raleway', sans-serif;
+}
+
 h1,p{
-  font-family: arial, sans-serif;
   color: #232332;
 }
 .landing-container, .landing-container *{
@@ -42,6 +49,7 @@ h1,p{
   align-content: center;
 }
 .logo-container{
+  z-index: 1;
   padding: 1rem;
   width: 100%;
   display: flex;
@@ -56,21 +64,32 @@ h1,p{
   font-family: arial,sans-serif;
 }
 .landing-text{
-  margin-top: 2rem;
+  margin-top: 10rem;
   padding: 2rem;
   background-color: rgba(225,225,225,0.8);
-  width: 60%;
+  width:100%;
   min-width: 300px;
   height: 300px;
-  border-radius: 5px;
+
+
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
 }
-.landing-text>h1, .landing-text>p{
+.logo-big{
+  width: 200px;
+  position: relative;
+  top: -8rem;
+
+}
+.landing-text>h1{
   text-align: center;
+  position: relative;
+  bottom: 6rem;
 }
-.landing-text>p{
-  font-style: italic;
-  margin-top: 1.5rem;
-}
+
 .cta-all{
   margin-top: 4rem;
   padding: 0.7rem 2rem;
@@ -85,7 +104,7 @@ h1,p{
 }
 
 .landing-container{
-  background: url('../../../img/background-home.jpg');
+  /* background: url('../../../img/background-home.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,7 +113,9 @@ h1,p{
   height: 100vh;
 }
 .logo{
-  width: 90px;
+  width: 70px;
+  position: fixed;
+  top: 1rem;
 }
 
 </style>
