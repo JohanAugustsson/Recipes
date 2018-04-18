@@ -12,7 +12,10 @@
     <!-- <button @click="addRecipe">Lägg till recept</button> -->
    <all-recipes v-if="currentSite==='allRecipesSite' || currentSite==='favoRecipeSite' " v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
-    <one-recipe v-else v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
+   <span v-else>
+     <button id="btnBack" @click="changePage"><i class="far fa-hand-point-left"></i> Tillbaka</button>
+     <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
+   </span>
   </div>
 </template>
 
@@ -34,6 +37,7 @@
         selectedRecipe : recipesObject[0],
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
+        historySite: ['allRecipesSite'],
         currentLandingImg: '../../../img/background-home.jpg'
 
       }
@@ -87,6 +91,9 @@
         if(Obj.type === "updateTitle"){
             this.$set(this.selectedRecipe, "title", Obj.textToAdd)
         }
+        if(Obj.type === "changeFavo"){
+            this.$set(this.selectedRecipe, "isFavo", Obj.favoStatus)
+        }
       },
       addRecipe : function(){
         let sum = this.recipesObject.length
@@ -114,18 +121,25 @@
          this.$set(this.allFoodObj, obj.index, obj.item)
        }
        if (obj.type === 'selectMe') {
-          console.log(obj.index);
+          this.historySite.push("oneRecipeSite");  // håller sidhistoria
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
           this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
-          console.log(this.currentLandingImg);
-       }
+      }
 
       },
       changeSite:function(site){
-        console.log(site);
         this.currentSite = site;
+        this.historySite.push(site); // håller sidhistoria
         this.currentLandingImg = '../../../img/background-home.jpg';
+      },
+      changePage: function(){
+        if(this.historySite.length>1){
+          while(this.historySite[this.historySite.length-1] === this.currentSite){
+            this.historySite.pop();
+          }
+          this.currentSite = this.historySite[this.historySite.length-1];
+        }
 
       }
     } // methods End
@@ -182,5 +196,15 @@ p{
     background-color: #0fd857;
     color: #232323;
     font-weight: bold;
+  }
+  #btnBack{
+    font-size: 1.5em;
+    width: 200px;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  #btnBack:hover{
+    cursor: pointer;
   }
 </style>
