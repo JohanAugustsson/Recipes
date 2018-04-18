@@ -7,7 +7,7 @@
       <h3 @click="showRecipe(index)">{{item.title}}</h3>
       <p @click="showRecipe(index)">{{item.textInfo}}</p>
       <div class="ingrediens-pickMe">
-        <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
+        <p class="ingrediensStyle"> {{Object.keys(item.ingridience).length}} ingredienser</p>
 
         <a v-if="item.isFavo === false" v-on:click.prevent='hartChosen(item,index)' href="" key='emtyHart' title="Välj och spara mig Valda recept"><i class="far fa-heart"></i> välj mig</a>
         <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a>
@@ -71,8 +71,14 @@ export default {
 </script>
 
 <style scoped lang="css">
+h1{
+font-family: 'Varela Round', sans-serif;
+}
+p,h3{
+  font-family: 'Raleway', sans-serif;
+}
 
-h3,p,a{
+a,.ingrediensStyle{
   font-family: arial,sans-serif;
 }
 
@@ -153,6 +159,15 @@ a{
 
 
 }
-
+@media all and (max-width:600px){
+  .recipeCard{
+    width: 100%;
+  }
+}
+@media all and (max-width:500px){
+  .ingrediens-pickMe{
+    width: 100%;
+  }
+}
 
 </style>
