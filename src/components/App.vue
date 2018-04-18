@@ -7,17 +7,18 @@
       <button @click="changeSite('allRecipesSite')"  type="button" name="button">Alla Recept</button>
       <button @click="changeSite('favoRecipeSite')"  type="button" name="button">Valda Recept</button>
     </div>
-    <p>{{currentSite}} hi</p>
+
 
     <button @click="addRecipe">Lägg till recept</button>
-   <all-recipes v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
+   <all-recipes v-if="currentSite==='allRecipesSite' || currentSite==='favoRecipeSite' " v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
-    <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
+    <one-recipe v-else v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
   </div>
 </template>
 
 <script>
-  import "../../static/web-fonts-with-css/css/fontawesome-all.css";
+  //import "../../static/web-fonts-with-css/css/fontawesome-all.css";
+  import "../../static/fontAwsome/fontawesome-all.js";
   import landingPage from './landingpage/landingpage.vue'
   import oneRecipe from './oneRecipe/oneRecipe.vue';
   import allRecipes from './allRecepies/allRecepies.vue'
@@ -106,19 +107,22 @@
 
       },
       chosenRecipe:function(obj){
-        console.log(obj);
-        obj.item.isFavo = !obj.item.isFavo;
-        this.$set(this.allFoodObj, obj.index, obj.item)
-        console.log(obj.item);
-        console.log(obj.index);
-        console.log(obj.item.isFavo);
-        console.log(this.allFoodObj);
+
+       if (obj.type === 'changeFavo') {
+         obj.item.isFavo = !obj.item.isFavo;
+         this.$set(this.allFoodObj, obj.index, obj.item)
+       }
+       if (obj.type === 'selectMe') {
+          console.log(obj.index);
+          this.currentSite = 'oneRecipeSite';
+          this.selectedRecipe = this.recipesObject[obj.index];
+       }
 
       },
       changeSite:function(site){
         console.log(site);
         this.currentSite = site;
-      
+
       }
     } // methods End
 
