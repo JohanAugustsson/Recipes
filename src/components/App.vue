@@ -89,20 +89,22 @@
       },
       addRecipe : function(){
         let sum = this.recipesObject.length
-        sum++;
+        sum = this.recipesObject[sum-1].id + 1; // tar sista objektets id och plussar på 1.
+
         let obj = {
           "id" : sum,
           "title" : "Ange Titel",
           "cookingTime" : "",
           "ingridience" :{
-            "1" : "Ingridienser",
-
+            "1" : "Ingridienser"
           },
           "howToCook" : {
               "1" : "Fyll i hur du tillagar"
           }
         }
+        this.selectedRecipe = this.recipesObject[sum-1] // väljer de nya receptet
         this.recipesObject.push(obj)
+
       },
       chosenRecipe:function(obj){
 
@@ -120,7 +122,6 @@
       changeSite:function(site){
         console.log(site);
         this.currentSite = site;
-
 
       }
     } // methods End
