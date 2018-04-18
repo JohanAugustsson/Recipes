@@ -2,14 +2,14 @@
   <div id="app">
 
 
-    <landing-page/>
+    <landing-page :landingImg='currentLandingImg'/>
     <div class="navMenu">
       <button @click="changeSite('allRecipesSite')"  type="button" name="button">Alla Recept</button>
       <button @click="changeSite('favoRecipeSite')"  type="button" name="button">Valda Recept</button>
     </div>
 
 
-    <button @click="addRecipe">Lägg till recept</button>
+    <!-- <button @click="addRecipe">Lägg till recept</button> -->
    <all-recipes v-if="currentSite==='allRecipesSite' || currentSite==='favoRecipeSite' " v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
     <one-recipe v-else v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
@@ -34,6 +34,7 @@
         selectedRecipe : recipesObject[0],
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
+        currentLandingImg: '../../../img/background-home.jpg'
 
       }
     },
@@ -116,12 +117,15 @@
           console.log(obj.index);
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
+          this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
+          console.log(this.currentLandingImg);
        }
 
       },
       changeSite:function(site){
         console.log(site);
         this.currentSite = site;
+        this.currentLandingImg = '../../../img/background-home.jpg';
 
       }
     } // methods End
@@ -134,16 +138,27 @@
 
 <!-- Global CSS -->
 <style>
+@import url('https://fonts.googleapis.com/css?family=Raleway|Varela+Round');
+h1{
+font-family: 'Varela Round', sans-serif;
+}
+p{
+  font-family: 'Raleway', sans-serif;
+}
 
 </style>
 
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
+
   #app{
     margin-bottom: 50vh;
   }
   .navMenu{
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
