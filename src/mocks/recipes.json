@@ -40,154 +40,203 @@
   },
   {
     "id" : 3,
-    "title" : "Pannkaka",
+    "title" : "Vårsallad med sparris",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://www.ica.se//icase.azureedge.net/imagevaultfiles/id_177938/cf_259/varsallad_med_sparris_723516_580x580px.jpg",
+    "textInfo": "Sparris är vårigt och festligt. Med ost och ärtskott blir denna sallad matig och fräsch. Börja med att skala den varsamt, och sedan koka den försiktigt på svag värme. Varva sparrisen med osten och ärtskotten och lägg upp snyggt.",
+    "cookingTime" : "30min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "1 kg färsk vit sparris",
+      "2" : "2 tsk salt",
+      "3" : "2 tsk smör & rapsolja",
+      "4" : "150 g herrgårdsost",
+      "5" : "100 g ärtskott eller solrosskott" ,
+      "6" : "3 msk smör & rapsolja",
+      "7" : "1 1/2 tsk flingsalt",
+      "8" : "1 tsk vitvinsvinäger"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Skala sparrisen försiktigt, börja alldeles under knoppen. Skär av den nedersta träiga delen." ,
+        "2" : "Koka upp vatten så att det precis når över sparrisen, salt och smör- och rapsolja i en vid kastrull. Lägg ner sparrisen och låt den koka på svag värme 4-6 minuter. Ta upp sparrisen, spola av den i kallt vatten och låt den rinna av.  ",
+        "3" : "Skär osten i små tärningar. Hit kan man förbereda.",
+        "4" : "Varva sparrisen med ost och ärtskott på ett uppläggningsfat.",
+        "5" : "Dressing: Blanda ingredienserna till dressingen och ringla den över salladen."}
   },
   {
     "id" : 4,
-    "title" : "Pannkaka",
+    "title" : "Nutellapannacotta",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://www.ica.se//icase.azureedge.net/imagevaultfiles/id_178065/cf_259/nutellapannacotta_723502_580x580px.jpg",
+    "textInfo": "Ljuvligt god pannacotta med Nutella som elegant serveras i glas eller portionsskålar. Rör om medan du försiktigt smälter ihop och blandar ingredienserna. Låt svalna ordentligt i kylen, minst tre timmar. Garnera med passionsfrukt och mynta. Njut.",
+    "cookingTime" : "1-4Tim",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "1 gelatinblad",
+      "2" : "3 dl syrad grädde (30%)",
+      "3" : "1 1/2 dl nutella",
+      "4" : "2 passionsfrukter",
+      "5" : "mynta"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Lägg gelatinbladet i kallt vatten ca 5 minuter." ,
+        "2" : "Värm grädden försiktigt. Smält nutellan i grädden under omrörning.",
+        "3" : "Lägg gelatinbladet i grädd- och nutellablandningen och smält under omrörning.",
+        "4" : "Fördela nutellagrädden i glas. Sätt in glasen i kylen ca 3 timmar och låt de bli ordentligt kalla.",
+        "5" : "Dela passionsfrukterna och kläm ur kärnorna ur en halv frukt i varje glas. Garnera med mynta."
+      }
   },
   {
     "id" : 5,
-    "title" : "Pannkaka",
+    "title" : "Steka ägg",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"http://www.johanssonskok.se/media/1268/img_6998_optimerad.jpg",
+    "textInfo": "Stekt ägg är det perfekta tillbehöret till nästan vad som helst. Funkar utmärkt morgon som kväll.",
+    "cookingTime" : "15min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "1 tsk smör",
+      "2" : "1 ägg",
+      "3" : "salt",
+      "4" : "peppar"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Smält smöret i en medelvarm stekpanna, låt smöret bli ljusbrunt." ,
+        "2" : "Knäck i ägget och låt det steka tills vitan har stelnat och börjar bli brun i kanterna.",
+        "3" : "Krydda med salt och peppar."
+      }
   },
   {
     "id" : 6,
-    "title" : "Pannkaka",
+    "title" : "Majs och sötpotatispuffar",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://imgs.aftonbladet-cdn.se/v2/images/3960a3d1-6913-4352-a044-30b960207250?fit=crop&h=476&w=650&s=1f428348ccd15c91dfc680333ab8e4083aff5f4d",
+    "textInfo": "Är du sugen på något riktigt gott har du hittat hem! Puffarna blir gyllenbruna med krispig yta. Ät dem med sötsur sås, kanske i gott sällskap som tilltugg – eller behåll dem för dig själv.",
+    "cookingTime" : "60min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "100 g sötpotatis",
+      "2" : "3 kaffir limeblad",
+      "3" : "4 dl kikärtsmjöl",
+      "4" : "1 tsk salt (gärna himalayasalt)",
+      "5" : "1 tsk bakpulver",
+      "6" : "2 1/2 dl vatten",
+      "7" : "2 msk röd currypaste",
+      "8" : "200 g frysta tinade majskorn",
+      "9" : "ca 1 l frityrolja",
+      "10" : "ca 2 dl sweet and soursås"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Skala sötpotatisen och riv den grovt. Hacka limebladen fint. Blanda kikärtsmjöl, salt och bakpulver. Tillsätt vatten och rör ihop. Blanda i sötpotatis, limeblad, röd currypaste och majs." ,
+        "2" : "Fyll en stor kastrull med frityroljan och hetta upp till 170–180°C. Klicka ner smeten i oljan med hjälp av två matskedar och fritera tills den får fin färg. Lyft upp med hålslev och låt rinna av på hushållspapper.",
+        "3" : "Till servering: Servera med sötsur sås."
+      }
   },
   {
     "id" : 7,
-    "title" : "Pannkaka",
+    "title" : "Krämig äggsallad",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://www.ica.se//icase.azureedge.net/imagevaultfiles/id_137430/cf_259/kramig-aggsallad-720396_770x654.jpg",
+    "textInfo": "En krämig äggsallad med goda smaker av hackad saltgurka, dijonsenap och gräslök. Denna kalla sallad är alldeles utmärkt att bjuda på som tillbehör en varm sommardag eller varför inte till sillunchen på midsommar?",
+    "cookingTime" : "30min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "4 ägg",
+      "2" : "2 hela saltgurkor",
+      "3" : "1 kruka gräslök",
+      "4" : "2 tsk dijonsenap",
+      "5" : "1 dl crème fraiche",
+      "6" : "salt och peppar"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Lägg äggen i kokande vatten och låt koka ca 10 minuter. Spola dem kalla i kallt vatten. Skala och hacka dem grovt." ,
+        "2" : "Hacka gurkan och skär gräslöken fint.",
+        "3" : "Blanda gurka, gräslök, senap och crème fraiche. Vänd ner äggen och smaksätt med salt och nymald peppar."
+      }
   },
   {
     "id" : 8,
-    "title" : "Pannkaka",
+    "title" : "Majskyckling med oliver och rostad paprika",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://www.ica.se//icase.azureedge.net/imagevaultfiles/id_174629/cf_259/majskyckling-med-oliver-och-rostad-paprika-723285.jpg",
+    "textInfo": "Underbart möra kycklingbröst serveras här med rostad delikatesspotatis och paprika. Tillsammans med en mumsig sås gjord av zucchini och parprika samt kalamataoliver har du en smakrik måltid att njuta av!",
+    "cookingTime" : "30min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "450 g potatis (gärna delikatess)",
+      "2" : "1/2 msk olja",
+      "3" : "salt",
+      "4" : "peppar",
+      "5" : "65 g ruccola",
+      "6" : "1 röd paprika",
+      "7" : "2 majskycklingbröst",
+      "8" : "1/2 msk olja",
+      "9" : "1/2 burk pastasås zucchini & paprika (à 420 g)",
+      "10" : "70 g kalamataoliver"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+      "1" : "Sätt ugnen på 225°C." ,
+      "2" : "Lägg potatisen i en ugnssäker form. Blanda den med olja och krydda med salt och peppar. Rosta potatisen mitt i ugnen först ca 10 minuter.",
+      "3" : "Dela, kärna ur och skär paprikan i grova bitar.",
+      "4" : "Kyckling: Bryn kycklingen i oljan runtom i en stekpanna och krydda med salt och peppar. Lägg kycklingen och paprikabitarna i potatisformen och stek tills kycklingens innertemperatur är 72°C, ytterligare 10-15 minuter.",
+      "5" : "Värm såsen med oliverna och servera till kyckling, paprika, potatis och ruccola."
+    }
   },
   {
     "id" : 9,
-    "title" : "Pannkaka",
+    "title" : "Vegansk Thai Curry",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://www.ica.se//icase.azureedge.net/imagevaultfiles/id_180180/cf_259/vegansk-thai-curry-723738-580x580.jpg",
+    "textInfo": "Vad sägs om en vegansk gryta med thailändska smaker till middag? Mm-mmh! Här kokas potatis, sötpotatis och Pulled Oats upp i krämig kokosmjölk som smaksätts med ingefära och currypaste. Servera med perfekt klibbigt jasminris, ät och njut.",
+    "cookingTime" : "30min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "4 port jasminris",
+      "2" : "1 stor potatis",
+      "3" : "1/2 liten sötpotatis",
+      "4" : "1 lök",
+      "5" : "2 vitlöksklyftor",
+      "6" : "ca 2 cm färsk ingefära",
+      "7" : "3 msk olivolja",
+      "8" : "1 paket pulled oats ingefära (à 240 g)",
+      "9" : "2 msk grön currypasta",
+      "10" : "1 grönsaksbuljongtärning",
+      "11" : "400 ml kokosmjölk",
+      "12" : "färsk koriander",
+      "13" : "hackad chili"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Koka riset enligt anvisningen på förpackningen." ,
+        "2" : "Skala och tärna potatis och sötpotatis. Skala och skiva löken. Skala och finhacka vitlök och ingefära.",
+        "3" : "Koka potatis och sötpotatis. Stek under tiden lök, vitlök och ingefära i oljan på medelvärme.",
+        "4" : "När de har fått en fin yta, lägg i potatis, sötpotatis och Pulled Oats. Stek ytterligare några minuter.",
+        "5" : "Blanda ner currypaste, buljongtärning och kokosmjölk och låt småkoka 2-3 minuter.",
+        "6" : "Servera med jasminris och garnera gärna med färsk koriander och chili."
+      }
   },
   {
     "id" : 10,
-    "title" : "Pannkaka",
+    "title" : "Grillad lax och sparris med salsa verde",
     "isFavo": false,
-    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
-    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
-    "cookingTime" : "45min",
+    "recipeImgUrl":"https://img.koket.se/media/grillad-lax-med-sockerartssallad.jpg",
+    "textInfo": "Få saker blir så gott som lax på grillen. Som här; i lyxigt sällskap av somrig färskpotatis och grillade grönsaker. Söta romanticatomater, citron och sparris gör sig perfekt efter en vända på glöden. Sist men inte minst - mixa ihop en skönt grön salsa verde på färska örter och servera, gärna med grillat surdegsbröd.",
+    "cookingTime" : "30min",
     "ingridience" :{
-      "1" : "2st Ägg",
-      "2" : "6dl Mjölk",
-      "3" : "3dl Mjöl",
-      "4" : "1tsk Salt"
+      "1" : "1 vitlöksklyfta",
+      "2" : "1 kruka gräslök",
+      "3" : "1 kruka persilja",
+      "4" : "1 huvudsallad",
+      "5" : "1 msk kapris",
+      "6" : "1 dl olivolja",
+      "7" : "salt",
+      "8" : "svartpeppar",
+      "9" : "2 tsk vinäger",
+      "10" : "12 gröna sparrisar",
+      "11" : "1 citron",
+      "12" : "1 msk olja",
+      "13" : "200 g romanticatomater",
+      "14" : "4 portionsbitar laxfilé (à 150 g)",
+      "15" : "kokt färskpotatis"
     },
     "howToCook" : {
-        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
-        "2" : "Skickta ner lite mjöl.",
-        "3" : "Häv i all mjölk och lite salt",
-        "4" : "Stek nu allt i en schteeekpanna"}
+        "1" : "Salsa verde: Skala och skiva vitlöken." ,
+        "2" : "Mixa vitlök, gräslök, persilja, sallad, kapris och olivolja. Smaksätt med salt, peppar och vinäger.",
+        "3" : "Grönsaker: Skär bort ca 2 cm av nedre delen på sparrisarna. Skala den om de är tjocka. Dela citronen i 4 klyftor. Pensla sparrisen med oljan. Grilla sparrisen, tomaterna och citronklyftorna 2-3 minuter. Krydda sparris och tomater med salt och peppar.",
+        "4" : "Grilla laxen, gärna i ett halster, ca 3 minuter på varje sida, eller tills innertemperaturen är ca 50˚C. Krydda med salt och peppar.",
+        "5" : "Till servering: Servera lax och grönsaker med salsa verde, kokt färskpotatis och gärna grillat bröd."
+      }
   }
 ]
