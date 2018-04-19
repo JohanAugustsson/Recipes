@@ -38,7 +38,7 @@
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
         historySite: ['allRecipesSite'],
-        currentLandingImg: 'https://cdn.pixabay.com/photo/2016/12/26/17/28/background-1932466_1280.jpg'
+        currentLandingImg: 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc'
 
 
       }
@@ -95,6 +95,10 @@
         if(Obj.type === "changeFavo"){
             this.$set(this.selectedRecipe, "isFavo", Obj.favoStatus)
         }
+        if(Obj.type === "updateImgUrl"){
+            this.$set(this.selectedRecipe, "recipeImgUrl", Obj.textToAdd)
+            this.currentLandingImg = Obj.textToAdd;
+        }
       },
       addRecipe : function(){
         let sum = this.recipesObject.length
@@ -135,7 +139,7 @@
       changeSite:function(site){
         this.currentSite = site;
         this.historySite.push(site); // håller sidhistoria
-        this.currentLandingImg = '../../../img/background-home.jpg';
+        this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
       },
       changePage: function(){
         if(this.historySite.length>1){
@@ -208,6 +212,7 @@ p{
     background: none;
     border: none;
     outline: none;
+    margin-top: 15px;
   }
   #btnBack:hover{
     cursor: pointer;

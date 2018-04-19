@@ -3,29 +3,35 @@
     <div class="selectedTitle">
 
 
-        <h2 v-if="!editText">{{ selected.title }}</h2>
-        <h2 v-else>
-          <textarea ref="updateTitelText" :value="selected.title" @change="updateTitle($event)" />
-        </h2>
 
+       <div class="">
+         <h2 v-if="!editText">{{ selected.title }} dasdas dasdsadasd adasds sad sdsd sad sad sads</h2>
+         <span v-else>
+           <h2><textarea ref="updateTitelText" :value="selected.title" @change="updateTitle($event)" /></h2>
+           <input class="inputForUpdateImg"  type="text" ref="updateUrlForImage" :value="selected.recipeImgUrl" @change="updateImageUrl($event)" />
+         </span>
+       </div>
 
-      <div class="container-btn">
-            <span v-if="!editText">
-              <button key="redigera" ref="btnEdit" @click="editRecipe">
-                <i class="fas fa-pencil-alt"></i> Redigera
-              </button>
+       <div class="container-btn">
+             <span v-if="!editText">
+               <button key="redigera" ref="btnEdit" @click="editRecipe">
+                 <i class="fas fa-pencil-alt"></i> Redigera
+               </button>
+             </span>
+             <span v-else>
+               <button key="spara" ref="btnEdit" @click="editRecipe">
+                 <i class="fas fa-save"></i> Spara
+               </button>
+             </span>
+
+            <span>
+              <button v-if="selected.isFavo === false" key='emtyHart' @click="changeFavo"><i class="far fa-heart"></i> välj mig</button>
+              <button v-else key='fullHart' @click="changeFavo"><i class="fas fa-times"></i> Stryk från vald</button>
+
             </span>
-            <span v-else>
-              <button key="spara" ref="btnEdit" @click="editRecipe">
-                <i class="fas fa-save"></i> Spara
-              </button>
-            </span>
+           <!-- <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a> -->
+       </div>
 
-
-          <button v-if="selected.isFavo === false" key='emtyHart' @click="changeFavo"><i class="far fa-heart"></i> välj mig</button>
-          <button v-else key='fullHart' @click="changeFavo"><i class="fas fa-times"></i> Stryk från vald</button>
-          <!-- <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a> -->
-      </div>
     </div>
 
     <div class="container-HowToCook">
@@ -155,6 +161,12 @@ export default {
         textToAdd: updateTitelText.value
       });
     },
+    updateImageUrl : function(event){
+      this.$emit('edit-recipe', {
+        type: "updateImgUrl",
+        textToAdd: event.target.value
+      });
+    },
     changeFavo: function(){
       let favoStatus = !this.selected.isFavo
       this.$emit('edit-recipe', {
@@ -187,19 +199,20 @@ export default {
     display: flex;
     flex-wrap: wrap;
     font-size: 1.3em;
-    display: block;
     flex: 1 100%;
     margin: 50px;
   }
-  .selectedTitle h2{
-    flex: 1 20%;
-  }
-  .selectedTitle .container-btn{
-    position: absolute;
-    right: 10%;
-    top: 10px;
 
+
+  .selectedTitle div{
+    flex: 1 40%;
   }
+  .container-btn{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+
   .container-Ingridience, .container-HowToCook{
     display: flex;
     flex-wrap: wrap;
@@ -215,7 +228,11 @@ export default {
     justify-content: center;
     margin-left: 40px;
   }
+  .inputForUpdateImg{
+    width: 500px;
+    font-size: 0.8em;
 
+  }
   h3{
     flex: 1 95%;
   }
