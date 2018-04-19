@@ -9,13 +9,15 @@
     </div>
 
 
-    <!-- <button @click="addRecipe">Lägg till recept</button> -->
+
    <all-recipes v-if="currentSite==='allRecipesSite' || currentSite==='favoRecipeSite' " v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
    <span v-else>
      <button id="btnBack" @click="changePage"><i class="far fa-hand-point-left"></i> Tillbaka</button>
      <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
    </span>
+
+   <button class="btnAddRecipe" @click="addRecipe"><i class="fas fa-plus-square"></i> Lägg till recept</button>
   </div>
 </template>
 
@@ -103,11 +105,13 @@
       addRecipe : function(){
         let sum = this.recipesObject.length
         sum = this.recipesObject[sum-1].id + 1; // tar sista objektets id och plussar på 1.
-
         let obj = {
           "id" : sum,
           "title" : "Ange Titel",
-          "cookingTime" : "",
+          "isFavo": false,
+          "recipeImgUrl":"https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc",
+          "textInfo": "Lägg in text",
+          "cookingTime" : "x",
           "ingridience" :{
             "1" : "Ingridienser"
           },
@@ -215,6 +219,18 @@ p{
     margin-top: 15px;
   }
   #btnBack:hover{
+    cursor: pointer;
+  }
+  .btnAddRecipe{
+    background: none;
+    border: none;
+    margin-left: 7rem;
+    margin-top: 30px;
+    color: #0fd857;
+    font-size: 1.2em;
+    outline: none;
+  }
+  .btnAddRecipe:hover{
     cursor: pointer;
   }
 </style>
