@@ -40,6 +40,7 @@
         historySite: ['allRecipesSite'],
         currentLandingImg: '../../../img/background-home.jpg'
 
+
       }
     },
     components: {
@@ -124,6 +125,7 @@
           this.historySite.push("oneRecipeSite");  // håller sidhistoria
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
+
           /*
           let ajax = new XMLHttpRequest();
           //let url = "https://lumiere-a.akamaihd.net/v1/images/eu_sws-sol_hero_v2_r_d6a3b7ef.jpeg?region=0,0,2000,835&width=1920"
@@ -139,6 +141,7 @@
           }
           ajax.send();
           */
+
           this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
 
       }
@@ -186,6 +189,7 @@ p{
     margin-bottom: 50vh;
   }
   .navMenu{
+    z-index: 2;
     position: -webkit-sticky;
     position: sticky;
     top: -1px;

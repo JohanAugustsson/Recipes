@@ -37,5 +37,157 @@
         "3" : "Häv i all mjölk och lite salt",
         "4" : "Stek nu allt i en schteeekpanna"
     }
+  },
+  {
+    "id" : 3,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 4,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 5,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 6,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 7,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 8,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 9,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
+  },
+  {
+    "id" : 10,
+    "title" : "Pannkaka",
+    "isFavo": false,
+    "recipeImgUrl":"https://i.ytimg.com/vi/FLd00Bx4tOk/maxresdefault.jpg",
+    "textInfo": "En barnsligt god klassiker, som blir en utmärkt torsdagsmiddag med ärtsoppa. Pannkakorna innehåller endast mjöl, ägg, mjölk och salt och ska serveras nygräddade med lite sylt och en klick grädde. Går även bra att ta med ut på picknick och äta kalla.",
+    "cookingTime" : "45min",
+    "ingridience" :{
+      "1" : "2st Ägg",
+      "2" : "6dl Mjölk",
+      "3" : "3dl Mjöl",
+      "4" : "1tsk Salt"
+    },
+    "howToCook" : {
+        "1" : "Knäck alla äggen i en stor skål och vispa tills alla ägggulor inte syns mer." ,
+        "2" : "Skickta ner lite mjöl.",
+        "3" : "Häv i all mjölk och lite salt",
+        "4" : "Stek nu allt i en schteeekpanna"}
   }
 ]
