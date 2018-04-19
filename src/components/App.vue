@@ -38,7 +38,7 @@
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
         historySite: ['allRecipesSite'],
-        currentLandingImg: '../../../img/background-home.jpg'
+        currentLandingImg: 'https://cdn.pixabay.com/photo/2016/12/26/17/28/background-1932466_1280.jpg'
 
 
       }
@@ -126,7 +126,9 @@
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
 
+
           this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
+        //  console.log('image test ', https://cdn.pixabay.com/photo/2016/12/26/17/28/background-1932466_1280.jpg);
       }
 
       },
