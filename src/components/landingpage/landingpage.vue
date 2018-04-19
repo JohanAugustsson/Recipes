@@ -47,6 +47,7 @@ h1,p{
   flex-direction: column;
   align-items: center;
   align-content: center;
+
 }
 .logo-container{
   z-index: 3;

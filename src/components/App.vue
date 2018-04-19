@@ -9,13 +9,15 @@
     </div>
 
 
-    <!-- <button @click="addRecipe">Lägg till recept</button> -->
+
    <all-recipes v-if="currentSite==='allRecipesSite' || currentSite==='favoRecipeSite' " v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
    <span v-else>
      <button id="btnBack" @click="changePage"><i class="far fa-hand-point-left"></i> Tillbaka</button>
      <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
    </span>
+
+   <button v-if="currentSite==='allRecipesSite'" class="btnAddRecipe" @click="addRecipe"><i class="fas fa-plus-square"></i> Lägg till recept</button>
   </div>
 </template>
 
@@ -38,7 +40,7 @@
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
         historySite: ['allRecipesSite'],
-        currentLandingImg: '../../../img/background-home.jpg'
+        currentLandingImg: 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc'
 
 
       }
@@ -95,15 +97,21 @@
         if(Obj.type === "changeFavo"){
             this.$set(this.selectedRecipe, "isFavo", Obj.favoStatus)
         }
+        if(Obj.type === "updateImgUrl"){
+            this.$set(this.selectedRecipe, "recipeImgUrl", Obj.textToAdd)
+            this.currentLandingImg = Obj.textToAdd;
+        }
       },
       addRecipe : function(){
         let sum = this.recipesObject.length
         sum = this.recipesObject[sum-1].id + 1; // tar sista objektets id och plussar på 1.
-
         let obj = {
           "id" : sum,
           "title" : "Ange Titel",
-          "cookingTime" : "",
+          "isFavo": false,
+          "recipeImgUrl":"https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc",
+          "textInfo": "Lägg in text",
+          "cookingTime" : "x",
           "ingridience" :{
             "1" : "Ingridienser"
           },
@@ -126,23 +134,8 @@
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
 
-          /*
-          let ajax = new XMLHttpRequest();
-          //let url = "https://lumiere-a.akamaihd.net/v1/images/eu_sws-sol_hero_v2_r_d6a3b7ef.jpeg?region=0,0,2000,835&width=1920"
-          let url = this.recipesObject[obj.index].recipeImgUrl;
-          ajax.open('get', url);
-          ajax.onreadystatechange = function() {
-          if(ajax.status == 200 && ajax.readyState == 4){
-            //this.currentLandingImg = url;
-            console.log("funka")
-            this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
-          }
-
-          }
-          ajax.send();
-          */
-
           this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
+        //  console.log('image test ', https://cdn.pixabay.com/photo/2016/12/26/17/28/background-1932466_1280.jpg);
 
       }
 
@@ -150,7 +143,7 @@
       changeSite:function(site){
         this.currentSite = site;
         this.historySite.push(site); // håller sidhistoria
-        this.currentLandingImg = '../../../img/background-home.jpg';
+        this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
       },
       changePage: function(){
         if(this.historySite.length>1){
@@ -223,8 +216,21 @@ p{
     background: none;
     border: none;
     outline: none;
+    margin-top: 15px;
   }
   #btnBack:hover{
+    cursor: pointer;
+  }
+  .btnAddRecipe{
+    background: none;
+    border: none;
+    margin-left: 7rem;
+    margin-top: 30px;
+    color: #0fd857;
+    font-size: 1.2em;
+    outline: none;
+  }
+  .btnAddRecipe:hover{
     cursor: pointer;
   }
 </style>
