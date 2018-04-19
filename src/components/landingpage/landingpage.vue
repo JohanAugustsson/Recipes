@@ -49,7 +49,7 @@ h1,p{
   align-content: center;
 }
 .logo-container{
-  z-index: 1;
+  z-index: 3;
   padding: 1rem;
   width: 100%;
   display: flex;

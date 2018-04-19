@@ -40,6 +40,7 @@
         historySite: ['allRecipesSite'],
         currentLandingImg: '../../../img/background-home.jpg'
 
+
       }
     },
     components: {
@@ -124,6 +125,7 @@
           this.historySite.push("oneRecipeSite");  // håller sidhistoria
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
+
           this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
       }
 
@@ -170,6 +172,7 @@ p{
     margin-bottom: 50vh;
   }
   .navMenu{
+    z-index: 2;
     position: -webkit-sticky;
     position: sticky;
     top: -1px;
