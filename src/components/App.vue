@@ -17,7 +17,7 @@
      <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
    </span>
 
-   <button class="btnAddRecipe" @click="addRecipe"><i class="fas fa-plus-square"></i> Lägg till recept</button>
+   <button v-if="currentSite==='allRecipesSite'" class="btnAddRecipe" @click="addRecipe"><i class="fas fa-plus-square"></i> Lägg till recept</button>
   </div>
 </template>
 
