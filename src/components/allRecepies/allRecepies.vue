@@ -1,5 +1,9 @@
 <template lang="html">
 <div class="allRecipes-container">
+  <div class="siteHeadlineContainer">
+    <h1 class="siteHeadline" v-if="currentSiteStatus==='allRecipesSite'" >Alla Recept</h1>
+    <h1 class="siteHeadline" v-if="currentSiteStatus==='favoRecipeSite'" >Valda Recept</h1>
+  </div>
   <div v-if="currentSiteStatus==='allRecipesSite'" v-for="(item,index) in loopThrough" class="recipeCard">
     <div @click="showRecipe(index)" v-bind:style="{ 'background-image': 'url(' + item.recipeImgUrl + ')' }" class="recipeImg-holder">
     </div>
@@ -7,7 +11,7 @@
       <h3 @click="showRecipe(index)">{{item.title}}</h3>
       <p @click="showRecipe(index)">{{item.textInfo}}</p>
       <div class="ingrediens-pickMe">
-        <p> {{Object.keys(item.ingridience).length}} ingredienser</p>
+        <p class="ingrediensStyle"> {{Object.keys(item.ingridience).length}} ingredienser</p>
 
         <a v-if="item.isFavo === false" v-on:click.prevent='hartChosen(item,index)' href="" key='emtyHart' title="Välj och spara mig Valda recept"><i class="far fa-heart"></i> välj mig</a>
         <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a>
@@ -71,8 +75,14 @@ export default {
 </script>
 
 <style scoped lang="css">
+h1{
+font-family: 'Varela Round', sans-serif;
+}
+p,h3{
+  font-family: 'Raleway', sans-serif;
+}
 
-h3,p,a{
+a,.ingrediensStyle{
   font-family: arial,sans-serif;
 }
 
@@ -81,13 +91,23 @@ a{
   color: navy;
   font-weight: bold;
 }
+.siteHeadlineContainer{
+  width: 100%;
+  display: flex;
 
+}
+h1.siteHeadline{
+  margin-left: 6.5rem;
+
+  align-self: flex-start;
+}
 .allRecipes-container *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .allRecipes-container{
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -96,15 +116,21 @@ a{
 
 }
 .recipeCard{
-  margin: 1rem 2rem;
+  margin: 1rem 0rem;
   width: 45%;
   min-width: 320px;
 
   background-color: powderblue;
   display: flex;
-  flex-basis: 45%;
+  flex-basis: 40%;
 }
 
+.allRecipes-container>.recipeCard:nth-child(even){
+  margin-left: 6.5rem;
+}
+.allRecipes-container>.recipeCard:nth-child(odd){
+  margin-right: 6.5rem;
+}
 .recipeImg-holder{
   margin-right: 1rem;
   width: 400px;
@@ -141,6 +167,7 @@ a{
 }
 
 @media all and (max-width:1300px){
+
   .allRecipes-container{
     flex-direction: column;
     align-items: center;
@@ -150,9 +177,42 @@ a{
     width: 80%;
     flex-basis: 100%;
   }
-
+  .allRecipes-container>.recipeCard:nth-child(even){
+    margin-left: 0;
+  }
+  .allRecipes-container>.recipeCard:nth-child(odd){
+    margin-right: 0;
+  }
+  .siteHeadlineContainer{
+    width: 80%;
+  }
+  h1.siteHeadline{
+    margin-left: 0;
+    align-self: flex-start;
+  }
 
 }
-
+@media all and (max-width:600px){
+  .recipeCard{
+    width: 100%;
+  }
+  .siteHeadlineContainer{
+    align-items: center;
+    text-align: center;
+  }
+  h1.siteHeadline{
+    text-align: center;
+    align-self: center;
+  }
+}
+@media all and (max-width:500px){
+  .ingrediens-pickMe{
+    width: 100%;
+    flex-direction: column;
+  }
+  .ingrediens-pickMe>p{
+    margin-bottom: 1rem;
+  }
+}
 
 </style>

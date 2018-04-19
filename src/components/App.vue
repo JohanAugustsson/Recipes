@@ -2,17 +2,20 @@
   <div id="app">
 
 
-    <landing-page/>
+    <landing-page :landingImg='currentLandingImg'/>
     <div class="navMenu">
       <button @click="changeSite('allRecipesSite')"  type="button" name="button">Alla Recept</button>
       <button @click="changeSite('favoRecipeSite')"  type="button" name="button">Valda Recept</button>
     </div>
 
 
-    <button @click="addRecipe">Lägg till recept</button>
+    <!-- <button @click="addRecipe">Lägg till recept</button> -->
    <all-recipes v-if="currentSite==='allRecipesSite' || currentSite==='favoRecipeSite' " v-on:chosen-recipe="chosenRecipe"  :loopThrough="allFoodObj" :currentSiteStatus="currentSite"/>   <!--loopar igenom alla recept -->
 
-    <one-recipe v-else v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
+   <span v-else>
+     <button id="btnBack" @click="changePage"><i class="far fa-hand-point-left"></i> Tillbaka</button>
+     <one-recipe v-on:edit-recipe="editRecipe" :selected="selectedRecipe"/> <!--Visar ett recept -->
+   </span>
   </div>
 </template>
 
@@ -34,6 +37,9 @@
         selectedRecipe : recipesObject[0],
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
+        historySite: ['allRecipesSite'],
+        currentLandingImg: 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc'
+
 
       }
     },
@@ -86,6 +92,13 @@
         if(Obj.type === "updateTitle"){
             this.$set(this.selectedRecipe, "title", Obj.textToAdd)
         }
+        if(Obj.type === "changeFavo"){
+            this.$set(this.selectedRecipe, "isFavo", Obj.favoStatus)
+        }
+        if(Obj.type === "updateImgUrl"){
+            this.$set(this.selectedRecipe, "recipeImgUrl", Obj.textToAdd)
+            this.currentLandingImg = Obj.textToAdd;
+        }
       },
       addRecipe : function(){
         let sum = this.recipesObject.length
@@ -113,15 +126,28 @@
          this.$set(this.allFoodObj, obj.index, obj.item)
        }
        if (obj.type === 'selectMe') {
-          console.log(obj.index);
+          this.historySite.push("oneRecipeSite");  // håller sidhistoria
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
-       }
+
+          this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
+        //  console.log('image test ', https://cdn.pixabay.com/photo/2016/12/26/17/28/background-1932466_1280.jpg);
+
+      }
 
       },
       changeSite:function(site){
-        console.log(site);
         this.currentSite = site;
+        this.historySite.push(site); // håller sidhistoria
+        this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
+      },
+      changePage: function(){
+        if(this.historySite.length>1){
+          while(this.historySite[this.historySite.length-1] === this.currentSite){
+            this.historySite.pop();
+          }
+          this.currentSite = this.historySite[this.historySite.length-1];
+        }
 
       }
     } // methods End
@@ -134,16 +160,28 @@
 
 <!-- Global CSS -->
 <style>
+@import url('https://fonts.googleapis.com/css?family=Raleway|Varela+Round');
+h1{
+font-family: 'Varela Round', sans-serif;
+}
+p{
+  font-family: 'Raleway', sans-serif;
+}
 
 </style>
 
 <!-- Scoped component css -->
 <!-- It only affect current component -->
 <style scoped>
+
   #app{
     margin-bottom: 50vh;
   }
   .navMenu{
+    z-index: 2;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -167,5 +205,16 @@
     background-color: #0fd857;
     color: #232323;
     font-weight: bold;
+  }
+  #btnBack{
+    font-size: 1.5em;
+    width: 200px;
+    background: none;
+    border: none;
+    outline: none;
+    margin-top: 15px;
+  }
+  #btnBack:hover{
+    cursor: pointer;
   }
 </style>
