@@ -124,7 +124,7 @@
           this.historySite.push("oneRecipeSite");  // håller sidhistoria
           this.currentSite = 'oneRecipeSite';
           this.selectedRecipe = this.recipesObject[obj.index];
-
+          /*
           let ajax = new XMLHttpRequest();
           //let url = "https://lumiere-a.akamaihd.net/v1/images/eu_sws-sol_hero_v2_r_d6a3b7ef.jpeg?region=0,0,2000,835&width=1920"
           let url = this.recipesObject[obj.index].recipeImgUrl;
@@ -138,7 +138,8 @@
 
           }
           ajax.send();
-
+          */
+          this.currentLandingImg = this.recipesObject[obj.index].recipeImgUrl;
 
       }
 
