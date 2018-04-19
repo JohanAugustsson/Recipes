@@ -238,5 +238,19 @@
         "4" : "Grilla laxen, gärna i ett halster, ca 3 minuter på varje sida, eller tills innertemperaturen är ca 50˚C. Krydda med salt och peppar.",
         "5" : "Till servering: Servera lax och grönsaker med salsa verde, kokt färskpotatis och gärna grillat bröd."
       }
+  },
+  {
+    "id" : 11,
+    "title" : "Ärtor",
+    "isFavo": false,
+    "recipeImgUrl":"https://receptfavoriter.se/sites/default/files/kokta_grona_artor_85_1060_2.jpg",
+    "textInfo": "En påse",
+    "cookingTime" : "30min",
+    "ingridience" :{
+      "1" : "1 påse ärtor."
+    },
+    "howToCook" : {
+        "1" : "Klipp hål i påsen och häll i en skål."
+    }
   }
 ]

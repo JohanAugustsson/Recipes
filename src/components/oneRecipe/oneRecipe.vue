@@ -5,7 +5,7 @@
 
 
        <div class="">
-         <h2 v-if="!editText">{{ selected.title }} dasdas dasdsadasd adasds sad sdsd sad sad sads</h2>
+         <h2 v-if="!editText">{{ selected.title }}</h2>
          <span v-else>
            <h2><textarea ref="updateTitelText" :value="selected.title" @change="updateTitle($event)" /></h2>
            <input class="inputForUpdateImg"  type="text" ref="updateUrlForImage" :value="selected.recipeImgUrl" @change="updateImageUrl($event)" />
