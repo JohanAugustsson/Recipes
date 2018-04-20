@@ -151,6 +151,7 @@
             this.historySite.pop();
           }
           this.currentSite = this.historySite[this.historySite.length-1];
+          this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
         }
 
       }
@@ -180,6 +181,12 @@ p{
 
   #app{
     margin-bottom: 50vh;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
   }
   .navMenu{
     z-index: 2;
@@ -217,6 +224,7 @@ p{
     border: none;
     outline: none;
     margin-top: 15px;
+    margin-left: 6rem;
   }
   #btnBack:hover{
     cursor: pointer;

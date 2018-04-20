@@ -28,11 +28,14 @@ export default {
 
 <style scoped lang="css">
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
 h1{
 font-family: 'Varela Round', sans-serif;
-}
-p{
-  font-family: 'Raleway', sans-serif;
 }
 
 h1,p{
@@ -105,11 +108,11 @@ h1,p{
 }
 
 .landing-container{
-  /* background: url('../../../img/background-home.jpg'); */
+  background: url('../../../img/background-home.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: pink;
+  background-color: powderblue;
   width: 100;
   height: 100vh;
 }
