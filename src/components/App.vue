@@ -94,6 +94,9 @@
         if(Obj.type === "updateTitle"){
             this.$set(this.selectedRecipe, "title", Obj.textToAdd)
         }
+        if(Obj.type === "updateInfoText"){
+            this.$set(this.selectedRecipe, "textInfo", Obj.textToAdd)
+        }
         if(Obj.type === "changeFavo"){
             this.$set(this.selectedRecipe, "isFavo", Obj.favoStatus)
         }

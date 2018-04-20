@@ -1,36 +1,49 @@
 <template lang="html">
   <div class="container-Selected">
+
+    <div class="container-btn">
+      <span v-if="!editText">
+        <button key="redigera" ref="btnEdit" @click="editRecipe">
+          <i class="fas fa-pencil-alt"></i> Redigera
+        </button>
+      </span>
+      <span v-else>
+        <button key="spara" ref="btnEdit" @click="editRecipe">
+          <i class="fas fa-save"></i> Spara
+        </button>
+      </span>
+
+      <span>
+        <button v-if="selected.isFavo === false" key='emtyHart' @click="changeFavo"><i class="far fa-heart"></i> välj mig</button>
+        <button v-else key='fullHart' @click="changeFavo"><i class="fas fa-times"></i> Stryk från vald</button>
+      </span>
+    </div>
+
     <div class="selectedTitle">
 
 
 
-       <div class="">
-         <h2 v-if="!editText">{{ selected.title }}</h2>
-         <span v-else>
-           <h2><textarea ref="updateTitelText" :value="selected.title" @change="updateTitle($event)" /></h2>
-           <input class="inputForUpdateImg"  type="text" ref="updateUrlForImage" :value="selected.recipeImgUrl" @change="updateImageUrl($event)" />
-         </span>
-       </div>
 
-       <div class="container-btn">
-             <span v-if="!editText">
-               <button key="redigera" ref="btnEdit" @click="editRecipe">
-                 <i class="fas fa-pencil-alt"></i> Redigera
-               </button>
-             </span>
-             <span v-else>
-               <button key="spara" ref="btnEdit" @click="editRecipe">
-                 <i class="fas fa-save"></i> Spara
-               </button>
-             </span>
+      <div class="container-edit">
+        <span v-if="!editText">
+          <h2> {{ selected.title }} </h2>
+          <p> {{ selected.textInfo }} </p>
+        </span>
 
-            <span>
-              <button v-if="selected.isFavo === false" key='emtyHart' @click="changeFavo"><i class="far fa-heart"></i> välj mig</button>
-              <button v-else key='fullHart' @click="changeFavo"><i class="fas fa-times"></i> Stryk från vald</button>
+        <span v-else>
+          Titel: <br/>
+          <h2><textarea ref="updateTitelText" :value="selected.title" @change="updateTitle($event)" /></h2><br/>
+          Infotext: <br/>
+          <textarea class="textAreaForInfoText" ref="updateInfoText" :value="selected.textInfo" @change="updateInfoText($event)" /><br/>
+          Url för bild:<br/>
+          <input class="inputForUpdateImg"  type="text" ref="updateUrlForImage" :value="selected.recipeImgUrl" @change="updateImageUrl($event)" />
+        </span>
+      </div>
 
-            </span>
-           <!-- <a v-else v-on:click.prevent='hartChosen(item,index)' href="" key='fullHart' title="Ta bort det här receptet från Valda recept"><i class="fas fa-heart"></i> Vald</a> -->
-       </div>
+
+
+
+
 
     </div>
 
@@ -87,7 +100,6 @@
 </template>
 
 <script>
-
 export default {
   props: ["selected"],
   data: function(){
@@ -104,7 +116,6 @@ export default {
            type: "update",
            index: index,
            textToAdd : event.target.value
-
 			});
     },
     removeHowToCook: function(index){
@@ -117,7 +128,6 @@ export default {
       let textToAdd = this.$refs.textToAdd
       let fail = false;
       if(textToAdd.value==""){fail = true}
-
       if(!fail){
         this.$emit('edit-recipe', {
           type: "add",
@@ -132,7 +142,6 @@ export default {
            type: "updateIngridience",
            index: index,
            textToAdd : event.target.value
-
 			});
     },
     removeIngridience: function (index){
@@ -161,6 +170,14 @@ export default {
         textToAdd: updateTitelText.value
       });
     },
+    updateInfoText: function(event){
+      let updateInfoText = this.$refs.updateInfoText
+
+      this.$emit('edit-recipe', {
+        type: "updateInfoText",
+        textToAdd: updateInfoText.value
+      });
+    },
     updateImageUrl : function(event){
       this.$emit('edit-recipe', {
         type: "updateImgUrl",
@@ -176,8 +193,6 @@ export default {
     }
   }
 }
-
-
 </script>
 
 <style scoped lang="css">
@@ -190,8 +205,9 @@ export default {
   h1,h3,h2{
   font-family: 'Varela Round', sans-serif;
   }
-
-
+  .container-edit p{
+    margin-top: 1rem;
+  }
   .container-Selected{
     display: flex;
     flex-direction: row;
@@ -207,8 +223,10 @@ export default {
     flex: 1 100%;
     margin: 50px;
   }
-
-
+  textarea{
+    resize: none;
+    width: 80%;
+  }
   .selectedTitle div{
     flex: 1 40%;
   }
@@ -216,48 +234,37 @@ export default {
     display: flex;
     justify-content: flex-end;
     flex-wrap: nowrap;
+    width: 100%;
   }
-
   .container-Ingridience, .container-HowToCook{
     display: flex;
     flex-wrap: wrap;
-    flex: 1 49%;
+    flex: 1 30%;
     padding: 5px;
     justify-content: center;
   }
   .container-HowToCook{
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 40%;
-    padding: 5px;
-    justify-content: center;
+    flex: 1 46%;
     margin-left: 40px;
   }
-  .container-HowToCook label:hover{
-    cursor: pointer;
-  }
   .inputForUpdateImg{
-    width: 500px;
+    width: 80%;
     font-size: 0.8em;
-
   }
   h3{
     flex: 1 95%;
   }
-
   ul{
     list-style-type: none;
     min-width: 300px;
     padding: 0px;
     flex: 1 90%;
-
   }
   ul li{
-    margin: 1.5rem 5px 1rem 5px;
-
+    margin: 1.5rem 0px 1.5rem 0px;
   }
   .container-HowToCook>ul>li{
-    margin: 1.5rem 5px 1.5rem 5px;
+    margin: 1.5rem 0px 1.5rem 0px;
   }
   button{
     padding: 5px;
@@ -267,6 +274,10 @@ export default {
     background: none;
     border: none;
     outline: none;
+    font-size: 1.5em;
+  }
+  .container-HowToCook label:hover{
+    cursor: pointer;
   }
   .container-btn button:hover{
     cursor: pointer;
@@ -274,7 +285,6 @@ export default {
   .btnAddHowToCook{
     background-color: rgb(96, 239, 107);
   }
-
   .inputForTodoList, .inputForIngridienceList{
     display: flex;
   }
@@ -282,7 +292,10 @@ export default {
     flex: 1 80%;
     padding: 5px;
   }
-
+  .textAreaForInfoText{
+    height: 200px;
+    margin-bottom: 1rem;
+  }
   /* För checkbox*/
   .inputCheckbox {
     display: none;
@@ -295,7 +308,6 @@ export default {
     opacity: 0;
     transition: visibility 0s, opacity 0.2s linear;
   }
-
   .inputCheckbox:checked ~ .iconForChecked{
     visibility: visible;
     opacity: 1;
@@ -311,7 +323,6 @@ export default {
     border: 1px solid #c8c8c8;
     position: absolute;
     left: -30px;
-
     border-radius: 3px;
   }
 /* För checkbox END*/

@@ -1,20 +1,20 @@
 CACHE MANIFEST
-#ver:2018-4-20 11:10:10
+#ver:2018-4-20 14:32:47
 #plugin:4.9.0
 
 CACHE:
 /assets/images/background-home.93ddbe64.jpg
 /assets/images/logo.6bf5119b.png
-/client.8460fd90.js
+/client.ce0d2077.js
 /vendor.1478daa0.js
 /manifest.95292176.js
-/client.05d625f9.css
+/client.154880e2.css
 /vendor.653da357.css
 /fontAwsome/fontawesome-all.js
-/icons/android-chrome-512x512.png
+/favicon.ico
 /manifest.json
 /icons/android-chrome-192x192.png
-/favicon.ico
+/icons/android-chrome-512x512.png
 /
 
 NETWORK:
