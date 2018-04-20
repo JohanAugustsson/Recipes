@@ -28,7 +28,7 @@
   import oneRecipe from './oneRecipe/oneRecipe.vue';
   import allRecipes from './allRecepies/allRecepies.vue'
   const recipesObject = require('../mocks/recipes.json');  // databas: json object med alla recept som vi har.
-
+  const imgForBackground = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
   console.log(recipesObject);
 
   export default {
@@ -40,7 +40,7 @@
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
         historySite: ['allRecipesSite'],
-        currentLandingImg: 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc'
+        currentLandingImg: imgForBackground
 
 
       }
@@ -101,6 +101,9 @@
             this.$set(this.selectedRecipe, "recipeImgUrl", Obj.textToAdd)
             this.currentLandingImg = Obj.textToAdd;
         }
+        if(Obj.type === "updateInfoText"){
+          this.$set(this.selectedRecipe, "textInfo", Obj.textToAdd)
+        }
       },
       addRecipe : function(){
         let sum = this.recipesObject.length
@@ -109,7 +112,7 @@
           "id" : sum,
           "title" : "Ange Titel",
           "isFavo": false,
-          "recipeImgUrl":"https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc",
+          "recipeImgUrl": imgForBackground,
           "textInfo": "Lägg in text",
           "cookingTime" : "x",
           "ingridience" :{
@@ -143,7 +146,7 @@
       changeSite:function(site){
         this.currentSite = site;
         this.historySite.push(site); // håller sidhistoria
-        this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
+        this.currentLandingImg = imgForBackground;
       },
       changePage: function(){
         if(this.historySite.length>1){
@@ -151,7 +154,7 @@
             this.historySite.pop();
           }
           this.currentSite = this.historySite[this.historySite.length-1];
-          this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
+          this.currentLandingImg = imgForBackground;
         }
 
       }
