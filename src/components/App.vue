@@ -28,8 +28,8 @@
   import oneRecipe from './oneRecipe/oneRecipe.vue';
   import allRecipes from './allRecepies/allRecepies.vue'
   const recipesObject = require('../mocks/recipes.json');  // databas: json object med alla recept som vi har.
-
-  console.log(recipesObject);
+  const imgForBackground = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
+  //console.log(recipesObject);
 
   export default {
     name: 'app',
@@ -40,7 +40,7 @@
         allFoodObj: recipesObject,
         currentSite: 'allRecipesSite',
         historySite: ['allRecipesSite'],
-        currentLandingImg: 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc'
+        currentLandingImg: imgForBackground
 
 
       }
@@ -143,7 +143,7 @@
       changeSite:function(site){
         this.currentSite = site;
         this.historySite.push(site); // håller sidhistoria
-        this.currentLandingImg = 'https://firebasestorage.googleapis.com/v0/b/nom-nomnom.appspot.com/o/background-home.jpg?alt=media&token=969663be-be0d-4227-abc3-dac3a618fbbc';
+        this.currentLandingImg = imgForBackground
       },
       changePage: function(){
         if(this.historySite.length>1){
@@ -151,6 +151,7 @@
             this.historySite.pop();
           }
           this.currentSite = this.historySite[this.historySite.length-1];
+          this.currentLandingImg = imgForBackground
         }
 
       }
@@ -181,6 +182,12 @@ p{
   #app{
     margin-bottom: 50vh;
   }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+  }
   .navMenu{
     z-index: 2;
     position: -webkit-sticky;
@@ -204,11 +211,41 @@ p{
     background-color: #232332;
     color: #fff;
     font-weight: bold;
+
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s
+  }
+  .navMenu>button:first-child:hover{
+    cursor: pointer;
+    background-color: #000000;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s
   }
   .navMenu>button:last-child{
     background-color: #0fd857;
     color: #232323;
     font-weight: bold;
+
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s
+  }
+  .navMenu>button:last-child:hover{
+    cursor: pointer;
+    background-color: #0ff461;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s
   }
   #btnBack{
     font-size: 1.5em;
@@ -217,6 +254,7 @@ p{
     border: none;
     outline: none;
     margin-top: 15px;
+    margin-left: 6rem;
   }
   #btnBack:hover{
     cursor: pointer;

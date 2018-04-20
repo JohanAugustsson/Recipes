@@ -125,6 +125,10 @@ h1.siteHeadline{
   flex-basis: 40%;
 }
 
+.recipeCard>.recipeImg-holder:hover,.recipeCard .recipeInfo>p:hover,.recipeCard .recipeInfo>h3:hover {
+    cursor: pointer;
+}
+
 .allRecipes-container>.recipeCard:nth-child(even){
   margin-left: 6.5rem;
 }

@@ -185,7 +185,12 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
   }
+  h1,h3,h2{
+  font-family: 'Varela Round', sans-serif;
+  }
+
 
   .container-Selected{
     display: flex;
@@ -228,6 +233,9 @@ export default {
     justify-content: center;
     margin-left: 40px;
   }
+  .container-HowToCook label:hover{
+    cursor: pointer;
+  }
   .inputForUpdateImg{
     width: 500px;
     font-size: 0.8em;
@@ -245,8 +253,11 @@ export default {
 
   }
   ul li{
-    margin: 5px 0px;
+    margin: 1.5rem 5px 1rem 5px;
 
+  }
+  .container-HowToCook>ul>li{
+    margin: 1.5rem 5px 1.5rem 5px;
   }
   button{
     padding: 5px;
