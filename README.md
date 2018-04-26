@@ -1,3 +1,6 @@
+Publicerad på firebase: https://nom-nomnom.firebaseapp.com/
+
+
 # Recipes
 
 > My tremendous Vue project
