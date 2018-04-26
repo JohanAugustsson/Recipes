@@ -1,9 +1,9 @@
 # Publicerad på firebase:
-
+```bash
 https://nom-nomnom.firebaseapp.com/
+```
 
-
-# Recipes
+## Recipes
 
 > My tremendous Vue project
 
